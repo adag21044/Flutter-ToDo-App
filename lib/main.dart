@@ -11,13 +11,13 @@ void main() {
 
 // MyApp class represents the main application
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key); // Constructor for MyApp
+  const MyApp({super.key}); // Constructor for MyApp
 
   @override
   Widget build(BuildContext context) {
     // Set the status bar color to transparent
     SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
     // Return a MaterialApp widget that serves as the root of the application
     return MaterialApp(
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue, // Set the primary color theme to blue
       ),
-      home: Home(), // Set the home screen of the app to the Home widget
+      home: const Home(), // Set the home screen of the app to the Home widget
     );
   }
 }

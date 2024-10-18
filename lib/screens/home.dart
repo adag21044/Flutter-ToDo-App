@@ -3,7 +3,10 @@ import 'package:to_do/constants/colors.dart'; // Import custom color constants f
 
 // This is the main Home widget which will be the main screen of the To-Do app.
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState(); // Create the mutable state for the Home widget.
 }
 
@@ -64,10 +67,10 @@ class _HomeState extends State<Home> {
                   ),
                 ],
               ),
-              padding: EdgeInsets.symmetric(horizontal: 16), // Padding for the input field.
+              padding: const EdgeInsets.symmetric(horizontal: 16), // Padding for the input field.
               child: TextField(
                 controller: _controller, // Connect the TextField to the controller.
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: InputBorder.none, // No border for the TextField.
                   hintText: 'Add a new task', // Placeholder text for the input.
                 ),
@@ -76,7 +79,7 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
-            SizedBox(height: 20), // Add space between input and the task list.
+            const SizedBox(height: 20), // Add space between input and the task list.
 
             // Task List
             Expanded(
@@ -104,7 +107,7 @@ class _HomeState extends State<Home> {
     return AppBar(
       backgroundColor: tdBGC, // Set AppBar background color.
       elevation: 0, // No shadow for the AppBar.
-      title: Text(
+      title: const Text(
         'To-Do List', // Title of the AppBar.
         style: TextStyle(
           color: tdBlack, // Title text color.
@@ -114,7 +117,7 @@ class _HomeState extends State<Home> {
       ),
       actions: [
         IconButton(
-          icon: Icon(Icons.settings, color: tdBlack), // Settings icon button.
+          icon: const Icon(Icons.settings, color: tdBlack), // Settings icon button.
           onPressed: () {}, // Do nothing for now.
         )
       ],
@@ -129,7 +132,7 @@ class TaskItem extends StatelessWidget {
   final VoidCallback onToggle; // Callback function to toggle completion status.
   final VoidCallback onDelete; // Callback function to delete the task.
 
-  const TaskItem({
+  const TaskItem({super.key, 
     required this.task,
     required this.isCompleted,
     required this.onToggle,
@@ -139,8 +142,8 @@ class TaskItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 8), // Margin for spacing between task items.
-      padding: EdgeInsets.all(16), // Padding inside the task item.
+      margin: const EdgeInsets.symmetric(vertical: 8), // Margin for spacing between task items.
+      padding: const EdgeInsets.all(16), // Padding inside the task item.
       decoration: BoxDecoration(
         color: isCompleted ? Colors.grey.shade200 : Colors.white, // Change background based on completion.
         borderRadius: BorderRadius.circular(15), // Rounded corners for the task item.
@@ -148,7 +151,7 @@ class TaskItem extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.shade300, // Shadow color for the task item.
             blurRadius: 6, // Blur effect for the shadow.
-            offset: Offset(0, 2), // Offset for the shadow.
+            offset: const Offset(0, 2), // Offset for the shadow.
           ),
         ],
       ),
@@ -163,7 +166,7 @@ class TaskItem extends StatelessWidget {
                   isCompleted ? Icons.check_circle : Icons.circle_outlined, // Show check or circle based on completion.
                   color: isCompleted ? tdRed : tdBlack, // Color of the icon.
                 ),
-                SizedBox(width: 10), // Space between the icon and task text.
+                const SizedBox(width: 10), // Space between the icon and task text.
                 Text(
                   task, // Display the task description.
                   style: TextStyle(
@@ -177,7 +180,7 @@ class TaskItem extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.delete, color: tdRed), // Delete icon button.
+            icon: const Icon(Icons.delete, color: tdRed), // Delete icon button.
             onPressed: onDelete, // Call delete function when pressed.
           ),
         ],
