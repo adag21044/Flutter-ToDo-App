@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
             // Task Input Area
             Container(
               decoration: BoxDecoration(
-                color: Colors.white, // Background color for the input container.
+                color: Colors.black, // Background color for the input container.
                 borderRadius: BorderRadius.circular(20), // Rounded corners for the container.
                 boxShadow: [
                   BoxShadow(
